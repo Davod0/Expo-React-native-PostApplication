@@ -9,6 +9,9 @@ export const AddPost = createAppAsyncThunk<Post, PostCreate>(
     if (!state.users.loggedInUser) {
       return thunkApi.rejectWithValue("No logged in user");
     }
+
+    await wait(5000);
+
     return {
       id: Date.now().toString(),
       userId: state.users.loggedInUser.uid,
@@ -16,3 +19,7 @@ export const AddPost = createAppAsyncThunk<Post, PostCreate>(
     };
   }
 );
+
+const wait = async (ms: number) => {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+};
