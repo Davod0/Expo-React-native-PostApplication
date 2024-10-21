@@ -24,10 +24,10 @@ export default function AddScreen() {
   return (
     <View style={styles.container}>
       <Text>Add New Post</Text>
-      <TextInput label={"Title"} value="title" onChangeText={setTitle} />
+      <TextInput label={"Title"} value={title} onChangeText={setTitle} />
       <TextInput
         label={"Content"}
-        value="content"
+        value={content}
         onChangeText={setContent}
         multiline
       />
