@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Button, Text, TextInput } from "react-native-paper";
-import { Post } from "../data";
+import { PostCreate } from "../data";
 import { useAppDispatch } from "../store/hooks";
 import { AddPost } from "../store/post/postsReducer";
 
@@ -11,8 +11,7 @@ export default function AddScreen() {
   const dispatch = useAppDispatch();
 
   const handleSubmit = () => {
-    const post: Post = {
-      id: Math.random().toString(),
+    const post: PostCreate = {
       title,
       content,
     };

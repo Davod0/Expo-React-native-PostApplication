@@ -1,10 +1,10 @@
 import { ScrollView, StyleSheet } from "react-native";
 import { Card, Text } from "react-native-paper";
 import { useAppSelector } from "../store/hooks";
-import { selectPosts } from "../store/post/selectors";
+import { selectPostsWithUser } from "../store/post/selectors";
 
 export default function HomeScreen() {
-  const posts = useAppSelector(selectPosts);
+  const posts = useAppSelector(selectPostsWithUser);
 
   return (
     <ScrollView style={styles.container}>
@@ -13,6 +13,7 @@ export default function HomeScreen() {
           <Card.Title title={post.title} />
           <Card.Content>
             <Text>{post.content}</Text>
+            <Text>{post.user?.name}</Text>
           </Card.Content>
         </Card>
       ))}
