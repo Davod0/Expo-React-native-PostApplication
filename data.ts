@@ -19,6 +19,8 @@ export type Comment = {
   content: string;
 };
 
+export type CommentCreate = Omit<Comment, "id" | "userId">;
+
 export const mockedUsers: User[] = [
   {
     uid: "1",
