@@ -3,7 +3,7 @@ import { StyleSheet, View } from "react-native";
 import { Button, Text, TextInput } from "react-native-paper";
 import { PostCreate } from "../data";
 import { useAppDispatch } from "../store/hooks";
-import { AddPost } from "../store/post/postsReducer";
+import { AddPost } from "../store/post/postsActions";
 
 export default function AddScreen() {
   const [title, setTitle] = useState("");

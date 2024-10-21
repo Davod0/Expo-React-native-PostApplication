@@ -9,7 +9,7 @@ export default function HomeScreen() {
   return (
     <ScrollView style={styles.container}>
       {posts.map((post) => (
-        <Card key={post.id}>
+        <Card>
           <Card.Title title={post.title} />
           <Card.Content>
             <Text>{post.content}</Text>

@@ -9,7 +9,7 @@ export type UsersState = {
 
 const initialState: UsersState = {
   list: mockedUsers,
-  loggedInUser: mockedUsers[0],
+  loggedInUser: mockedUsers[1],
 };
 
 export const usersSlice = createSlice({

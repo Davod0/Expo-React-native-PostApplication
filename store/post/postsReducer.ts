@@ -1,6 +1,6 @@
-import type { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
-import { mockedPosts, Post, PostCreate } from "../../data";
+import { mockedPosts, Post } from "../../data";
+import { AddPost } from "./postsActions";
 
 type PostsState = Post[];
 const initialState: PostsState = mockedPosts;
@@ -8,12 +8,13 @@ const initialState: PostsState = mockedPosts;
 export const postsSlice = createSlice({
   name: "posts",
   initialState,
-  reducers: {
-    AddPost: (state, action: PayloadAction<PostCreate>) => {
-      state.push({ id: Date.now().toString(), ...action.payload, userId: "1" });
-    },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(AddPost.fulfilled, (state, action) => {
+      state.push(action.payload);
+    });
   },
 });
 
-export const { AddPost } = postsSlice.actions;
+export const {} = postsSlice.actions;
 export default postsSlice.reducer;
