@@ -1,15 +1,20 @@
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import React from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import { Card, Text } from "react-native-paper";
+import { RootStackParamList } from "../navigators/RootStackNavigator";
 import { useAppSelector } from "../store/hooks";
 import { selectPostsWithUser } from "../store/post/selectors";
 
-export default function HomeScreen() {
+type Props = NativeStackScreenProps<RootStackParamList, "Home">;
+
+export default function HomeScreen({ navigation }: Props) {
   const posts = useAppSelector(selectPostsWithUser);
 
   return (
     <ScrollView style={styles.container}>
       {posts.map((post) => (
-        <Card>
+        <Card onPress={() => navigation.navigate("Post", { postId: post.id })}>
           <Card.Title title={post.title} />
           <Card.Content>
             <Text>{post.content}</Text>

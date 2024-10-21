@@ -2,10 +2,12 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Pressable, Text } from "react-native";
 import AddScreen from "../screens/AddScreen";
 import HomeScreen from "../screens/HomeScreen";
+import PostScreen from "../screens/PostScreen";
 
 export type RootStackParamList = {
   Home: undefined;
   Add: undefined;
+  Post: { postId: string };
 };
 
 export const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -25,6 +27,7 @@ export function RootStackNavigator() {
         })}
       />
       <RootStack.Screen name="Add" component={AddScreen} />
+      <RootStack.Screen name="Post" component={PostScreen} />
     </RootStack.Navigator>
   );
 }

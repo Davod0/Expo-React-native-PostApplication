@@ -12,3 +12,7 @@ export const selectPostsWithUser = (state: RootState) => {
 };
 
 export const selectPostsIsLoading = (state: RootState) => state.posts.isLoading;
+
+export const selectPostById = (postId: string) => (state: RootState) => {
+  return state.posts.list.find((post) => post.id === postId);
+};
