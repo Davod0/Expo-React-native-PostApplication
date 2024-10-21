@@ -7,11 +7,13 @@ export type RootStackParamList = {
   Add: undefined;
 };
 
-const RootStack = createNativeStackNavigator<RootStackParamList>();
+export const RootStack = createNativeStackNavigator<RootStackParamList>();
 
-export default function RootStackNavigator() {
-  <RootStack.Navigator>
-    <RootStack.Screen name="Home" component={HomeScreen} />
-    <RootStack.Screen name="Add" component={AddScreen} />
-  </RootStack.Navigator>;
+export function RootStackNavigator() {
+  return (
+    <RootStack.Navigator>
+      <RootStack.Screen name="Home" component={HomeScreen} />
+      <RootStack.Screen name="Add" component={AddScreen} />
+    </RootStack.Navigator>
+  );
 }

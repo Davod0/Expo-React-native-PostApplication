@@ -1,14 +1,25 @@
-import { StyleSheet, View } from "react-native";
-import { Text } from "react-native-paper";
+import { ScrollView, StyleSheet, View } from "react-native";
+import { Card, Text } from "react-native-paper";
+import { mockedPosts } from "../data";
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <Text>Home</Text>
-    </View>
+    <ScrollView style={styles.container}>
+      {mockedPosts.map((post) => (
+        <Card key={post.id}>
+          <Card.Title title={post.title} />
+          <Card.Content>
+            <Text>{post.content}</Text>
+          </Card.Content>
+        </Card>
+      ))}
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    padding: 12,
+    gap: 12,
+  },
 });
